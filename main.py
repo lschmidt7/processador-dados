@@ -1,7 +1,7 @@
-from arquivos import carrega_arquivo
+from arquivos import carrega_arquivo, salvar_arquivo
 from processamento import localiza, filtrar, projetar
 
-alunos = carrega_arquivo('dados/alunos.csv', ',', [str, int, str, float, float, int, float, bool])
+alunos, cabecalho = carrega_arquivo('dados/alunos.csv', ',', [str, int, str, float, float, int, float, bool])
 
 # linha = localiza(alunos, 4999)
 
@@ -17,8 +17,10 @@ alunos_pedro_ii_monitoria_sem1_7 = filtrar(alunos_pedro_ii_monitoria, 'nota_seme
 
 print(len(alunos_pedro_ii_monitoria_sem1_7))
 
-alunos_pedro_ii_monitoria_sem1_7_projetado = projetar(alunos_pedro_ii_monitoria_sem1_7, ['nome', 'nota_semestre_1', 'monitoria'])
+# alunos_pedro_ii_monitoria_sem1_7_projetado = projetar(alunos_pedro_ii_monitoria_sem1_7, ['nome', 'nota_semestre_1', 'monitoria'])
 
-aluno = localiza(alunos_pedro_ii_monitoria_sem1_7_projetado, 0)
+# aluno = localiza(alunos_pedro_ii_monitoria_sem1_7_projetado, 0)
 
-print(aluno)
+# print(aluno)
+
+salvar_arquivo('dados/alunos_filtrados.csv', ',', alunos_pedro_ii_monitoria_sem1_7)
